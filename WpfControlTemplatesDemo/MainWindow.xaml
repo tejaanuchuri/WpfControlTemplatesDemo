@@ -6,18 +6,23 @@
         xmlns:local="clr-namespace:WpfControlTemplatesDemo"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="MyButtonTemplate">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse Fill="Red"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <Button Content="I am a button" Width="160" Height="60" Click="Button_Click">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Grid>
+        <Button Style="{StaticResource MyButtonTemplate}"  Content="I am a button" Width="160" Height="60" Click="Button_Click">
 
-                        <Ellipse Fill="Red"/>
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
-
-                    </Grid>
-                </ControlTemplate>
-            </Button.Template>
         </Button>
     </Grid>
 </Window>
